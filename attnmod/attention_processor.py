@@ -1,5 +1,7 @@
 from typing import Callable, List, Optional, Union, Dict, Any, Tuple
 
+import torch
+
 from diffusers import StableDiffusionPipeline, StableDiffusionXLPipeline
 from diffusers.callbacks import MultiPipelineCallbacks, PipelineCallback
 from diffusers.image_processor import PipelineImageInput

@@ -1,4 +1,4 @@
-from .attnmod import AttnModPipeline, AttnModXLPipeline
+from .attnmod_pipelines import AttnModPipeline, AttnModXLPipeline
 
 __all__ = [
     "AttnModPipeline",

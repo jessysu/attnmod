@@ -21,6 +21,7 @@ In the above image, the leftmost column shows the default diffuser output of 6 p
 ## Download
 
 ```
+pip install diffusers==0.30.2
 git clone https://github.com/jessysu/attnmod
 cd attnmod
 ```
@@ -46,7 +47,10 @@ image[0]
 ```python
 # attnmod
 attnmod = {
-    'up_blocks.0.attentions.0.transformer_blocks.8.attn1.processor': {"start": -50, "increment": 0},
+    'up_blocks.0.attentions.0.transformer_blocks.8.attn1.processor': {
+        "start": -50,
+        "increment": 0
+    },
 }
 generator = torch.Generator(device="cpu").manual_seed(0)
 image = pipe(prompt, generator=generator, attnmod=attnmod,).images

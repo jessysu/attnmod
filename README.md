@@ -10,9 +10,7 @@
 <img src='output/tiles/styles_6x1_1x12.jpg' width = 900 >
 </div>
 
-Imagine a human artist looking at the generated photo of a diffusion model, and hoping to create a painting out of it. There could be some feature of the object in the photo that the artist wants to emphasize, some color to disperse, some silhouette to twist, or some part of the scene to be materialized. These intentions can be viewed as the modification of the cross attention from the text prompt onto UNet, during the desoising diffusion.
-
-In the above image, the leftmost column shows the default diffuser output of 6 prompted styles. AttnMod creates other styles - each remaining column has the same AttnMod setup. Within one attention block, different setup twists the diffusion into different tile in the image below, surrounding the default outut.
+In the above image, the leftmost column shows the default diffuser output of 6 prompted styles. AttnMod creates other styles - each remaining column has the same AttnMod setup. AttnMod modifies the cross attention from the encoded text prompt inside the UNet attention blocks. Within one attention block, different setup twists the diffusion into different tile in the image below, surrounding the highlighted default outut.
 
 <p align="center">
   <img src="output/tiles/U1A0A2.jpg" width = 900>

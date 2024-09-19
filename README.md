@@ -16,6 +16,8 @@ In the above image, the leftmost column shows the default diffuser output of 6 p
   <img src="output/tiles/U1A0A2.jpg" width = 900>
 </p>
 
+The AttnMod setup contains two parts: starting attention and increment. The default out has starting attention 1 and increment of 0. In the image above, the starting attention goes up toward the right while the increment goes up toward the bottom, when modding only the attention block 'up_blocks.1.attentions.0.transformer_blocks.0.attn2.processor' of SD15.
+
 ## Download
 
 ```

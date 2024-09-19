@@ -18,7 +18,7 @@ from diffusers.utils import (
     is_torch_xla_available,
 )
 from diffusers.models.attention_processor import AttnProcessor, AttnProcessor2_0
-
+from .attention_processor import AttnProcessorMod, AttnProcessorMod2_0
 
 
 

@@ -10,7 +10,7 @@
 <img src='output/tiles/styles_6x1_1x12.jpg' width = 900 >
 </div>
 
-In the above image, the leftmost column shows the default diffuser output of 6 prompted styles. AttnMod creates other styles - each remaining column has the same AttnMod setup. AttnMod modifies the cross attention from the encoded text prompt inside the UNet attention blocks. Within one attention block, different setup twists the diffusion into different tile in the image below, surrounding the highlighted default outut.
+In the above image, the leftmost column shows the default diffuser output of 6 prompted styles. AttnMod creates other styles - each remaining column has the same AttnMod setup. AttnMod modifies the cross attention from the encoded text prompt inside the UNet attention blocks. Within one attention block, different setups twist the diffusion into different tiles in the image below, surrounding the highlighted default output.
 
 <p align="center">
   <img src="output/tiles/U1A0A2.jpg" width = 900>

@@ -10,17 +10,18 @@
 <img src='output/tiles/styles_6x1_1x12.jpg' width = 900 >
 </div>
 
-Imagine a human artist looking at the generated photo of a diffusion model, and hoping to create a painting out of it. There could be some feature of the object in the photo that the artist wants to emphasize, some color to disperse, some silhouette to twist, or some part of the scene to be materialized. These intentions can be viewed as the modification of the cross attention from the text prompt onto UNet, during the desoising diffusion.
-
-In the above image, the leftmost column shows the default diffuser output of 6 prompted styles. AttnMod creates other styles - each remaining column has the same AttnMod setup. Within one attention block, different setup twists the diffusion into different tile in the image below, surrounding the default outut.
+In the above image, the leftmost column shows the default diffuser output of 6 prompted styles. AttnMod creates other styles - each remaining column has the same AttnMod setup. AttnMod modifies the cross attention from the encoded text prompt inside the UNet attention blocks. Within one attention block, different setups twist the diffusion into different tiles in the image below, surrounding the highlighted default output.
 
 <p align="center">
   <img src="output/tiles/U1A0A2.jpg" width = 900>
 </p>
 
+The AttnMod setup contains two parts: starting attention and increment. The default out has starting attention 1 and increment of 0. In the image above, the starting attention goes up toward the right while the increment goes up toward the bottom, when modding only the attention block 'up_blocks.1.attentions.0.transformer_blocks.0.attn2.processor' of SD15.
+
 ## Download
 
 ```
+pip install diffusers==0.30.2
 git clone https://github.com/jessysu/attnmod
 cd attnmod
 ```
@@ -46,7 +47,10 @@ image[0]
 ```python
 # attnmod
 attnmod = {
-    'up_blocks.0.attentions.0.transformer_blocks.8.attn1.processor': {"start": -50, "increment": 0},
+    'up_blocks.0.attentions.0.transformer_blocks.8.attn1.processor': {
+        "start": -50,
+        "increment": 0
+    },
 }
 generator = torch.Generator(device="cpu").manual_seed(0)
 image = pipe(prompt, generator=generator, attnmod=attnmod,).images
